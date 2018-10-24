@@ -27,14 +27,17 @@ function onCellClick(event){
 }
 
 function reset(event) {
-    console.log('resetting!!!');
+ // alternatively --> location.reload();
+    currentPlayer = 'X';
+    cells.forEach(function resetCell (cell){
+        delete cell.beenClicked; 
+        cell.textContent = '';
+    });
 } 
-
 
 function renderTurn(){
     turnDisplay.textContent = currentPlayer; 
 }
-
 
 //kick it off 
 renderTurn(); 
