@@ -2,7 +2,8 @@
 const board = document.querySelector('.board');
 const cells = board.querySelectorAll('.cell');
 const turnDisplay = document.querySelector('.turn span');
-const controls = document.querySelector('.control');
+const controls = document.querySelector('.controls');
+const resetBtn = controls.querySelector('button');
 let currentPlayer = 'X';
 let gameOver = false; 
 
@@ -10,6 +11,8 @@ let gameOver = false;
 cells.forEach(function attachCellListener(cell){
     cell.addEventListener('click', onCellClick); 
 }); 
+
+resetBtn.addEventListener('click', reset); 
 
 //functions
 function onCellClick(event){
@@ -23,9 +26,15 @@ function onCellClick(event){
     renderTurn();
 }
 
+function reset(event) {
+    console.log('resetting!!!');
+} 
+
+
 function renderTurn(){
     turnDisplay.textContent = currentPlayer; 
 }
+
 
 //kick it off 
 renderTurn(); 
